@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // alert(now.getDate(), now.getFullYear());
   date.innerHTML =
     now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
-  let phoneMask;
-  if (phoneMask) {
-    phoneMask = new inputmask({
+
+  if (phone) {
+    let phoneMask = new inputmask({
       mask: "+375-99-999-99-99",
       clearIncomplete: true,
       greedy: false,

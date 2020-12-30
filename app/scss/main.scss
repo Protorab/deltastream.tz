@@ -9,6 +9,75 @@ body {
   overflow: hidden;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  @include _widthVw(940);
+
+  position: relative;
+
+  @media only screen and (max-width : 1280px) {
+    @include _widthVw(1040);
+
+  }
+
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 30px;
+}
+
+.header__wrapper {
+  align-items: center;
+}
+
+.logos {
+  display: flex;
+}
+
+.logo {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &:nth-child(1) {
+    margin-right: 30px;
+  }
+}
+
+.header__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  height: 40px;
+  @include _borderRadius(5px);
+  @include _transition(all, .5s);
+  border: 3px solid #fff;
+  background: rgba(255, 255, 255, .5);
+  max-width: 320px;
+  color: #3e939f;
+  font-weight: bold;
+
+  &-img {
+    width: 20px;
+    height: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &:hover {
+    background: #fff;
+  }
+}
+
 .main {
   width: 100%;
   height: 100%;
@@ -20,16 +89,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-  @include _widthVw(940);
-
-  position: relative;
-
-
 }
 
 .main__wrapper {
@@ -62,6 +121,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+
   }
 }
 
@@ -299,11 +359,17 @@ textarea {
   img {
     width: auto;
     height: 100%;
+
+    @media only screen and (max-width : 1440px) {
+      height: 70%;
+
+    }
   }
 }
 
 .info {
   align-self: flex-start;
+  margin-top: auto;
   margin-left: 5px;
   margin-bottom: 5px;
   @extend .p;
@@ -324,5 +390,116 @@ textarea {
 .orders {
   strong {
     color: $accent;
+  }
+}
+
+.popup {
+  @include _transition(all, .1s);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100500;
+  display: none;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.popup__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.form__popup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $mainColor;
+  @include _borderRadius(5px);
+  @include _transition(all, .1s);
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  z-index: 2;
+  width: 95%;
+  max-width: 500px;
+  padding: 60px 20px 20px;
+
+
+  &-input {
+    margin-bottom: 15px;
+    color: #2f455c;
+    border: 1px #2f455c solid;
+
+    &::placeholder {
+
+      color: #2f455c;
+
+    }
+
+    &:last-child {
+      margin-bottom: 15px;
+    }
+  }
+
+  &-textarea {
+    margin-bottom: 15px;
+  }
+
+
+}
+
+.popup__btn {
+  align-self: center;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+
+  @include _transition(transform, .3s);
+
+  span {
+    @include _borderRadius(5%);
+    position: absolute;
+    // top: 0%;
+    right: 0%;
+    transform: rotate(45deg);
+    display: block;
+    background: $accent;
+    width: 100%;
+    height: 3px;
+    bottom: 10px;
+
+    &::before {
+      @include _borderRadius(5%); // top: 0%;
+      right: 0%;
+      bottom: 10px;
+      content: '';
+      position: absolute;
+      top: 0;
+      transform: rotate(-90deg);
+      display: block;
+      background: $accent;
+      width: 100%;
+      height: 3px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
