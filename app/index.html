@@ -6,7 +6,56 @@
   <body>
     <!--#include virtual="/includes/_header.html" -->
 
-    <main class="main" role="main"></main>
+    <main class="main" role="main">
+      <div class="wrapper main__wrapper">
+        <div class="main__bg">
+          <img src="img/img.jpg" alt="" />
+        </div>
+        <h1 class="main__title">Подбор Каско on-line</h1>
+        <p class="main__text">
+          Ответьте на <strong>7 вопросов</strong> и наш сервис подберет для Вас
+          самое выгодное предложение
+        </p>
+        <label class="quiz__label"> 1.Марка вашего авто: </label>
+        <div class="custom-select-wrapper first__select">
+          <div class="custom-select">
+            <div class="custom-select__trigger">
+              <span>Renault</span>
+              <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+              <span class="custom-option selected" data-value="Renault">
+                Renault
+              </span>
+              <span class="custom-option" data-value="Lada">Lada</span>
+              <span class="custom-option" data-value="Peugeot">Peugeot</span>
+              <span class="custom-option" data-value="ZAZ">ZAZ</span>
+              <span class="custom-option" data-value="Ferrari">Ferrari</span>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn">РАССЧИТАТЬ</a>
+        <div class="bottom__images">
+          <img src="img/belgosstrax.png" alt="" />
+          <img src="img/promtrans.png" alt="" />
+          <img src="img/task.png" alt="" />
+          <img src="img/belneftestrax.png" alt="" />
+          <img src="img/kupala.png" alt="" />
+          <img src="img/b_b.png" alt="" />
+        </div>
+        <div class="info">
+          <div id="date" class="date"></div>
+          <div class="orders">
+            обработанное заявок :
+            <strong><span class="order__counter">948</span></strong>
+          </div>
+        </div>
+      </div>
+
+      <form class="quize__form" action="">
+        <input id="select__input" class="hidden__input" type="text" />
+      </form>
+    </main>
     <!--#include virtual="/includes/_footer.html" -->
   </body>
 </html>

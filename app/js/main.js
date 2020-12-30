@@ -24,17 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const burgerMenu = document.querySelector(".burger__menu");
   const menu = document.querySelector(".menu");
+  const date = document.querySelector("#date");
 
   const body = document.querySelector("body");
 
   const customSelect = document.querySelector(".custom-select-wrapper");
 
-  let phoneMask = new inputmask({
-    mask: "+375-99-999-99-99",
-    clearIncomplete: true,
-    greedy: false,
-  });
-  phoneMask.mask(phone);
+  let now = new Date();
+  // alert(now.getDate(), now.getFullYear());
+  date.innerHTML =
+    now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
+  let phoneMask;
+  if (phoneMask) {
+    phoneMask = new inputmask({
+      mask: "+375-99-999-99-99",
+      clearIncomplete: true,
+      greedy: false,
+    });
+    phoneMask.mask(phone);
+  }
 
   function classRemove(element, removeClass) {
     const elementClass = document.querySelector("" + element + "");

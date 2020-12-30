@@ -1,10 +1,89 @@
 @import 'config';
 
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
-  @include _widthVw(1400);
+  @include _widthVw(940);
+
   position: relative;
+
+
+}
+
+.main__wrapper {
+  @include adaptive(padding-top, 50, 20, 0);
+  height: 100%;
+  max-height: 510px;
+  box-shadow: 0px 14px 21px 0px rgba(6, 33, 40, 0.71);
+  @include _borderRadius(10px);
+  border: 2px solid transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
+  position: relative;
+
+}
+
+.main__bg {
+  position: absolute;
+  @include _borderRadius(10px);
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: -1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+
+.main__title {
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+  width: 90%;
+}
+
+.main__text {
+  text-align: center;
+  max-width: 410px;
+  width: 90%;
+  text-align: center;
+  display: inline-block;
+  @include adaptive(margin-bottom, 45, 15, 0);
+
+  strong {
+    color: $accent;
+  }
 }
 
 input,
@@ -13,23 +92,74 @@ textarea {
   @extend .p;
   @include _borderRadius(5px);
   border: none;
-  background: #060b0d;
+  background: #fff;
   color: $textcolor;
+
 }
 
 .btn {
   display: flex;
-  padding: 10px 0;
-  width: 100%;
-
+  overflow: hidden;
+  font-weight: bold;
   min-height: 40px;
+
+  height: 40px;
   align-items: center;
   justify-content: center;
   @include _borderRadius(5px);
-  @include _transition(background, .1s);
-
-  background: #0086bf;
+  @include _transition(all, .5s);
   color: #fff;
+  position: relative;
+  z-index: 0;
+  width: 90%;
+  max-width: 230px;
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::after {
+    background-image: linear-gradient(0deg, rgb(255, 102, 0) 0%, rgb(255, 158, 4) 100%);
+    @include _transition(all, .5s);
+
+  }
+
+  &::before {
+    background-image: linear-gradient(180deg, rgb(255, 102, 0) 0%, rgb(255, 158, 4) 100%);
+    @include _transition(all, .5s);
+    // opacity: 0;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 0;
+    }
+
+
+  }
+}
+
+.quize__form {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.quiz__label {
+  font-weight: bold;
+  color: $accent;
+  margin-bottom: 10px;
+  display: inline-block;
+  max-width: 230px;
+  width: 90%;
 }
 
 .custom {
@@ -37,11 +167,7 @@ textarea {
     position: relative;
     display: flex;
     flex-direction: column;
-    border-width: 0 2px 0 2px;
     @include _borderRadius(5px);
-
-    border-style: solid;
-    border-color: $textcolor;
 
     &.open {
       .custom-options {
@@ -52,9 +178,11 @@ textarea {
     }
 
     &-wrapper {
+      color: #2f455c;
       position: relative;
       user-select: none;
       width: 100%;
+      max-width: 230px;
     }
   }
 
@@ -65,14 +193,10 @@ textarea {
     justify-content: space-between;
     padding: 0 22px;
     @extend .p;
-    height: 40px;
+    height: 30px;
     background: $mainColor;
     cursor: pointer;
     @include _borderRadius(5px);
-
-    border-width: 2px 0 2px 0;
-    border-style: solid;
-    border-color: $textcolor;
   }
 
   &-options {
@@ -116,6 +240,10 @@ textarea {
   }
 }
 
+.first__select {
+  margin-bottom: 20px;
+}
+
 .arrow {
   position: relative;
   height: 10px;
@@ -154,4 +282,47 @@ textarea {
     transform: rotate(45deg);
   }
 
+}
+
+.bottom__images {
+  display: flex;
+  width: 100%;
+  height: 78px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.6);
+  @include adaptive(margin-top, 45, 20, 0);
+  margin-bottom: 15px;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.info {
+  align-self: flex-start;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  @extend .p;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  margin-right: 10px;
+  padding: 10px;
+  background-image: url('../img/shape.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.orders {
+  strong {
+    color: $accent;
+  }
 }
