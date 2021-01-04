@@ -186,7 +186,7 @@ $maxWidthContainer:940;
 // GENERAL DOCUMENT STYLES
 
 ::placeholder {
-	color: $textcolor;
+	color: #565656;
 }
 
 ::selection {
@@ -395,7 +395,7 @@ h,
 	&2 {
 		margin: 0;
 		padding: 0;
-		font-size: 3rem;
+		font-size: 3.4rem;
 		line-height: 134%;
 		font-weight: bold;
 		position: relative;
@@ -405,7 +405,8 @@ h,
 	&3 {
 		margin: 0;
 		padding: 0;
-		font-size: 2rem;
+		font-size: 3rem;
+
 		line-height: 130%;
 		font-weight: bold;
 		position: relative;
@@ -415,7 +416,7 @@ h,
 	&4 {
 		margin: 0;
 		padding: 0;
-		font-size: 1.8rem;
+		font-size: 2.4rem;
 		line-height: 120%;
 		font-weight: bold;
 		position: relative;
@@ -438,6 +439,14 @@ h,
 
 		&2 {
 			font-size: 2.5rem;
+		}
+
+		&3 {
+			font-size: 2rem;
+		}
+
+		&4 {
+			font-size: 1.8rem;
 		}
 	}
 

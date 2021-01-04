@@ -17,23 +17,93 @@ document.addEventListener("DOMContentLoaded", () => {
   const phone = document.querySelector(".telephone");
 
   const popupForm = document.querySelector("#popup__form");
+
   const formPopup = document.querySelector(".form__popup");
+
   const showForm = document.querySelectorAll(".show__form");
+
   const popupBg = document.querySelectorAll(".popup__overlay");
+
   const closePopup = document.querySelectorAll(".close");
 
-  const burgerMenu = document.querySelector(".burger__menu");
-  const menu = document.querySelector(".menu");
+  const questions = document.querySelectorAll(".question");
+
+  const counterChng = document.querySelectorAll(".question-input-chang");
+
   const date = document.querySelector("#date");
 
   const body = document.querySelector("body");
 
+  const lastStep = document.querySelector(".last__step");
+  const info = document.querySelector(".info");
+
+  const stepBtns = document.querySelectorAll(".step__btn");
+
+  const quizeAnswers = document.querySelectorAll(".quize__answer");
+
   const customSelect = document.querySelector(".custom-select-wrapper");
 
-  let now = new Date();
-  // alert(now.getDate(), now.getFullYear());
-  date.innerHTML =
-    now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
+  lastStep.addEventListener("click", function (e) {
+    e.preventDefault();
+    info.classList.add("__hide");
+  });
+
+  let now = new Date(),
+    day,
+    month;
+
+  if (stepBtns) {
+    stepBtns.forEach(function (stepBtn) {
+      stepBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let questionIndex = Number(this.dataset.index);
+        let answer = this.dataset.answer;
+        let nextIndex = questionIndex + 1;
+        console.log(nextIndex);
+        for (let i = 0; i < questions.length; i++) {
+          const question = questions[i];
+          questions[questionIndex].classList.add("__hide");
+          questions[nextIndex].classList.remove("__hide");
+        }
+        for (let i = 0; i < quizeAnswers.length; i++) {
+          const quizeAnswer = quizeAnswers[i];
+          quizeAnswers[questionIndex].value = answer;
+        }
+      });
+    });
+  }
+
+  if (counterChng) {
+    counterChng.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        let questionInput = this.parentNode.querySelector(".question-input");
+        let questionAnswer = this.parentNode.parentNode.querySelector(".btn");
+
+        if (this.classList.contains("chang__dec")) {
+          questionInput.value--;
+          questionAnswer.dataset.answer--;
+        } else {
+          questionInput.value++;
+          questionAnswer.dataset.answer++;
+        }
+        e.preventDefault();
+      });
+    });
+  }
+
+  if (now.getDate() < 10) {
+    day = "0" + now.getDate();
+  } else {
+    day = now.getDate();
+  }
+  if (now.getMonth() < 10) {
+    month = "0" + (now.getMonth() + 1);
+  } else {
+    month = now.getMonth() + 1;
+  }
+  if (date) {
+    date.innerHTML = day + "." + month + "." + now.getFullYear();
+  }
 
   if (phone) {
     let phoneMask = new inputmask({
@@ -72,15 +142,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", function () {
-    classRemove(".burger__menu.__clicked", "__clicked");
-    classRemove(".menu.__show", "__show");
+    // if (window.innerWidth <= 600) {
+    //   let howScroll = window.scrollTop;
+    //   if (howScroll >= 10) {
+    //     header.classList.add("__hide");
+    //   } else {
+    //     header.classList.remove("__hide");
+    //   }
+    // }
+    // classRemove(".burger__menu.__clicked", "__clicked");
+    // classRemove(".menu.__show", "__show");
   });
 
   if (showForm) {
     showForm.forEach(function (btn) {
       btn.addEventListener("click", function (e) {
         const subject = this.dataset.subject;
-        console.log(subject);
         e.preventDefault();
         popupToggle(
           popupForm,
@@ -145,6 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ".custom-select__trigger span"
           ).textContent = this.textContent;
         }
+        this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(
+          ".btn"
+        ).dataset.answer = this.textContent;
       });
     }
     window.addEventListener("click", function (e) {
@@ -154,6 +234,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  function setInputFilter(textbox, inputFilter) {
+    [
+      "input",
+      "keydown",
+      "keyup",
+      "mousedown",
+      "mouseup",
+      "select",
+      "contextmenu",
+      "drop",
+    ].forEach(function (event) {
+      textbox.addEventListener(event, function () {
+        if (inputFilter(this.value)) {
+          this.oldValue = this.value;
+          this.oldSelectionStart = this.selectionStart;
+          this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+          this.value = this.oldValue;
+          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        } else {
+          this.value = "";
+        }
+      });
+    });
+  }
+  setInputFilter(document.querySelector(".question-input"), function (value) {
+    return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  });
   document.addEventListener("keydown", function (event) {
     if (event.keyCode === 27) {
       popupClose();

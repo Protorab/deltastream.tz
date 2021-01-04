@@ -11,50 +11,161 @@
         <div class="main__bg">
           <img src="img/img.jpg" alt="" />
         </div>
-        <h1 class="main__title">Подбор Каско on-line</h1>
-        <p class="main__text">
-          Ответьте на <strong>7 вопросов</strong> и наш сервис подберет для Вас
-          самое выгодное предложение
-        </p>
-        <label class="quiz__label"> 1.Марка вашего авто: </label>
-        <div class="custom-select-wrapper first__select">
-          <div class="custom-select">
-            <div class="custom-select__trigger">
-              <span>Renault</span>
-              <div class="arrow"></div>
-            </div>
-            <div class="custom-options">
-              <span class="custom-option selected" data-value="Renault">
-                Renault
-              </span>
-              <span class="custom-option" data-value="Lada">Lada</span>
-              <span class="custom-option" data-value="Peugeot">Peugeot</span>
-              <span class="custom-option" data-value="ZAZ">ZAZ</span>
-              <span class="custom-option" data-value="Ferrari">Ferrari</span>
+        <div class="question question-0">
+          <h1 class="main__title">Подбор Каско on-line</h1>
+          <p class="main__text">
+            Ответьте на <strong>7 вопросов</strong> и наш сервис подберет для
+            Вас самое выгодное предложение
+          </p>
+          <label class="quiz__label"> 1.Марка вашего авто: </label>
+          <div class="custom-select-wrapper custom__select">
+            <div class="custom-select">
+              <div class="custom-select__trigger">
+                <span>Renault</span>
+                <div class="arrow"></div>
+              </div>
+              <div class="custom-options">
+                <span class="custom-option selected" data-value="Renault">
+                  Renault
+                </span>
+                <span class="custom-option selection" data-value="Lada">
+                  Lada
+                </span>
+                <span class="custom-option selection" data-value="Peugeot">
+                  Peugeot
+                </span>
+                <span class="custom-option selection" data-value="ZAZ">
+                  ZAZ
+                </span>
+                <span class="custom-option selection" data-value="Ferrari">
+                  Ferrari
+                </span>
+              </div>
             </div>
           </div>
+          <a
+            href="#"
+            data-index="00"
+            data-answer="Renault"
+            class="btn step__btn"
+          >
+            РАССЧИТАТЬ
+          </a>
+          <div class="bottom__images">
+            <img class="bottom__img" src="img/belgosstrax.png" alt="" />
+            <img class="bottom__img" src="img/promtrans.png" alt="" />
+            <img class="bottom__img" src="img/task.png" alt="" />
+            <img class="bottom__img" src="img/belneftestrax.png" alt="" />
+            <img class="bottom__img" src="img/kupala.png" alt="" />
+            <img class="bottom__img" src="img/b_b.png" alt="" />
+          </div>
         </div>
-        <a href="#" class="btn">РАССЧИТАТЬ</a>
-        <div class="bottom__images">
-          <img src="img/belgosstrax.png" alt="" />
-          <img src="img/promtrans.png" alt="" />
-          <img src="img/task.png" alt="" />
-          <img src="img/belneftestrax.png" alt="" />
-          <img src="img/kupala.png" alt="" />
-          <img src="img/b_b.png" alt="" />
+        <div class="question __hide question-1">
+          <h2 class="question__title">2. Год выпуска автомобиля:</h2>
+          <div class="question-input-wrapp">
+            <span class="question-input-chang chang__dec dec__input"></span>
+            <input type="text" class="question-input" value="2011" />
+            <span class="question-input-chang chang__inc inc__input"></span>
+          </div>
+          <a
+            href="#"
+            data-index="01"
+            data-answer="2011"
+            class="btn step__btn last__step"
+          >
+            далее
+          </a>
+        </div>
+        <form
+          class="quize__form send__form question __hide question-2 _def"
+          action=""
+        >
+          <h2 class="main__title answer__form-title">
+            Данные для подбора КАСКО:
+          </h2>
+          <div class="answer__wrapp answers">
+            <div class="answer__col">
+              <label class="answer__label" for="que__0">
+                Марка вашего авто:
+                <input
+                  id="que__0"
+                  readonly
+                  class="quize__answer"
+                  name="Марка авто"
+                  type="text"
+                />
+              </label>
+              <label class="answer__label" for="que__1">
+                Год выпуска автомобиля:
+                <input
+                  id="que__1"
+                  readonly
+                  class="quize__answer"
+                  name="Год выпуска автомобиля:"
+                  type="text"
+                />
+              </label>
+            </div>
+            <div class="answer__col">
+              <div class="answer__col-title">Подобрано:</div>
+              <div class="best__offers">
+                <span class="best__offers-count">3</span>
+                <span class="best__offers-text">оптимальных предложения</span>
+              </div>
+              <div class="offers">
+                <img src="img/belgosstrax.png" alt="" />
+                <img src="img/promtrans.png" alt="" />
+                <img src="img/task.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="answer__wrapp inputs">
+            <input type="hidden" name="project_name" value="deltastream.tz" />
+            <input
+              type="hidden"
+              name="admin_email"
+              value="leo.rudenkov@gmail.com
+"
+            />
+            <input
+              type="hidden"
+              name="form_subject"
+              value="Данные для подбора КАСКО:"
+            />
+            <input
+              type="text"
+              class="answer__input"
+              placeholder="Имя"
+              required
+            />
+            <input
+              type="text"
+              class="answer__input telephone"
+              placeholder="+375 __ ___ __ __"
+            />
+
+            <label class="btn btn__answer" for="answer__submit"
+              >ПОЛУЧИТЬ РАСЧЕТ</label
+            >
+            <input id="answer__submit" type="submit" value="" />
+          </div>
+        </form>
+        <div class="question thaks__window _thx">
+          <div class="thanks__title">Спасибо!</div>
+          <div class="thanks__text">
+            Ваша заявка отправлена, наш менеждер свяжется с Вами
+          </div>
         </div>
         <div class="info">
           <div id="date" class="date"></div>
           <div class="orders">
             обработанное заявок :
-            <strong><span class="order__counter">948</span></strong>
+            <strong>
+              <span class="order__counter"> 948 </span>
+            </strong>
           </div>
         </div>
       </div>
-
-      <form class="quize__form" action="">
-        <input id="select__input" class="hidden__input" type="text" />
-      </form>
     </main>
     <!--#include virtual="/includes/_footer.html" -->
   </body>

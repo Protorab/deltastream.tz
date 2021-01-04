@@ -7,18 +7,22 @@ $(document).ready(function () {
     var th = $(this);
     $.ajax({
       type: "POST",
-      url: "mail.php", //Change
+      // url: "../assets/mail.php",
+      url: "//deltastream.tz/assets/mail.php",
+
       data: th.serialize(),
     }).done(function () {
-      alert("Thank you!");
+      $("._def").hide();
+      $("._thx").hide().css("display", "flex");
       setTimeout(function () {
-        // Done Functions
+        $("._def").hide().css("display", "flex");
+        $("._thx").hide();
         th.trigger("reset");
       }, 1000);
     });
     return false;
   });
-  $("form").keydown(function () {
+  $("form").keydown(function (e) {
     if (e.keyCode == 13) {
       e.preventDefault();
     }
