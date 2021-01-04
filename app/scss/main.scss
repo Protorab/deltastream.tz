@@ -1,4 +1,6 @@
-@import 'config';
+/** @format */
+
+@import "config";
 
 body {
   // position: fixed;
@@ -16,26 +18,21 @@ body {
 
   position: relative;
 
-  @media only screen and (max-width : 1440px) {
+  @media only screen and (max-width: 1440px) {
     @include _widthVw(1140);
-
   }
 
-
-  @media only screen and (max-width : 1280px) {
+  @media only screen and (max-width: 1280px) {
     @include _widthVw(1200);
-
   }
 
-  @media only screen and (max-width : 1024px) {
+  @media only screen and (max-width: 1024px) {
     max-width: 80vw;
   }
 
-  @media only screen and (max-width : 800px) {
+  @media only screen and (max-width: 800px) {
     max-width: 95vw;
-
   }
-
 }
 
 .header {
@@ -45,29 +42,27 @@ body {
   padding-top: 30px;
   z-index: 2;
 
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     padding-top: 15px;
     padding-bottom: 15px;
 
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, 0.5);
   }
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     padding-top: 15px;
     padding-bottom: 15px;
 
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, 0.5);
   }
-
 }
 
 .header__wrapper {
   align-items: center;
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
   }
-
 }
 
 .logos {
@@ -84,10 +79,9 @@ body {
     margin-right: 30px;
   }
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     margin-bottom: 15px;
   }
-
 }
 
 .header__btn {
@@ -97,9 +91,9 @@ body {
   width: 90%;
   height: 40px;
   @include _borderRadius(5px);
-  @include _transition(all, .5s);
+  @include _transition(all, 0.5s);
   border: 3px solid #fff;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, 0.5);
   max-width: 320px;
   color: #3e939f;
   font-weight: bold;
@@ -124,7 +118,7 @@ body {
   height: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url('../img/bg.jpg');
+  background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -132,15 +126,13 @@ body {
   align-items: center;
   justify-content: center;
 
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     padding-top: 100px;
-
   }
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     padding-top: 150px;
   }
-
 }
 
 .main__wrapper {
@@ -158,16 +150,13 @@ body {
   z-index: 1;
   position: relative;
 
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
-    max-height: fit-content;
-
-  }
-
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     max-height: fit-content;
   }
 
-
+  @media only screen and (max-width: 600px) {
+    max-height: fit-content;
+  }
 }
 
 .main__bg {
@@ -195,7 +184,7 @@ body {
   width: 100%;
   align-items: center;
   height: fit-content;
-  @include _transition(all, .8s);
+  @include _transition(all, 0.8s);
 
   &.__hide {
     display: none;
@@ -235,13 +224,9 @@ body {
         width: 15px;
         height: 2px;
         content: "";
-
       }
 
       &.chang__inc {
-
-
-
         &::after {
           transform: rotate(90deg);
         }
@@ -253,7 +238,6 @@ body {
       align-items: center;
       justify-content: center;
       @include adaptive(margin-bottom, 30, 20, 0);
-
     }
   }
 }
@@ -262,7 +246,6 @@ body {
   @extend .t3;
   color: $accent;
   @include adaptive(margin-bottom, 75, 35, 0);
-
 }
 
 .main__title {
@@ -294,8 +277,6 @@ textarea {
   border: none;
   background: #fff;
   color: #2f455c;
-
-
 }
 
 .btn {
@@ -308,7 +289,7 @@ textarea {
   align-items: center;
   justify-content: center;
   @include _borderRadius(5px);
-  @include _transition(all, .5s);
+  @include _transition(all, 0.5s);
   color: #fff;
   position: relative;
   z-index: 0;
@@ -328,14 +309,21 @@ textarea {
   }
 
   &::after {
-    background-image: linear-gradient(0deg, rgb(255, 102, 0) 0%, rgb(255, 158, 4) 100%);
-    @include _transition(all, .5s);
-
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 102, 0) 0%,
+      rgb(255, 158, 4) 100%
+    );
+    @include _transition(all, 0.5s);
   }
 
   &::before {
-    background-image: linear-gradient(180deg, rgb(255, 102, 0) 0%, rgb(255, 158, 4) 100%);
-    @include _transition(all, .5s);
+    background-image: linear-gradient(
+      180deg,
+      rgb(255, 102, 0) 0%,
+      rgb(255, 158, 4) 100%
+    );
+    @include _transition(all, 0.5s);
     // opacity: 0;
   }
 
@@ -343,36 +331,32 @@ textarea {
     &::after {
       opacity: 0;
     }
-
-
   }
 }
 
-.answer__form {}
+.answer__form {
+}
 
 .answer__input {
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
-    margin-bottom: 15px;
-
-  }
-
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     margin-bottom: 15px;
   }
 
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 15px;
+  }
 }
 
 .btn__answer {
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     max-width: 100%;
     width: 100%;
   }
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     max-width: 100%;
     width: 100%;
   }
-
 }
 
 .answer__label {
@@ -390,7 +374,7 @@ textarea {
 
   &::before {
     display: block;
-    content: '';
+    content: "";
     width: 5px;
     height: 5px;
     @include _borderRadius(50%);
@@ -405,23 +389,19 @@ textarea {
   max-width: 720px;
   justify-content: space-between;
 
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     &.inputs {
       flex-direction: column;
     }
-
   }
 
-  @media only screen and (max-width : 600px) {
-
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
 
     &.inputs {
       margin-bottom: 35px;
-
     }
   }
-
 }
 
 .answers {
@@ -440,15 +420,12 @@ textarea {
 
   &-count {
     @extend .t3;
-
   }
 
   &-text {
     @extend .p;
     font-weight: bold;
   }
-
-
 }
 
 .offers {
@@ -464,17 +441,15 @@ textarea {
     @extend .p;
     font-weight: bold;
     margin-bottom: 15px;
-
   }
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     margin-bottom: 35px;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
-
 }
 
 .quize__answer {
@@ -483,7 +458,6 @@ textarea {
   font-weight: bold;
   padding: 0;
   padding-left: 5px;
-
 }
 
 .quiz__label {
@@ -493,7 +467,6 @@ textarea {
   display: inline-block;
   max-width: 230px;
   width: 90%;
-
 }
 
 .custom {
@@ -543,14 +516,14 @@ textarea {
     border: 2px solid $textcolor;
     border-top: 0;
     background: $mainColor;
-    @include _transition(all, .5s);
+    @include _transition(all, 0.5s);
     @include _borderRadius(0 0 5px 5px);
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     z-index: 2;
-    box-shadow: rgba(0, 0, 0, .2) 0 8px 16px 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 8px 16px 0;
   }
 
   &-option {
@@ -559,10 +532,9 @@ textarea {
     padding: 0 22px;
     @extend .p;
     cursor: pointer;
-    @include _transition(all, .5s);
+    @include _transition(all, 0.5s);
 
     &:hover {
-
       background-color: $accent;
       color: $mainColor;
     }
@@ -615,7 +587,6 @@ textarea {
     left: 2.7px;
     transform: rotate(45deg);
   }
-
 }
 
 .bottom__images {
@@ -630,11 +601,10 @@ textarea {
   @include adaptive(margin-top, 45, 20, 0);
   margin-bottom: 15px;
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     flex-wrap: wrap;
     padding-bottom: 0;
   }
-
 }
 
 .bottom__img {
@@ -642,21 +612,18 @@ textarea {
   height: 100%;
   max-height: 78px;
 
-  @media only screen and (max-width : 1440px) {
+  @media only screen and (max-width: 1440px) {
     height: 70%;
   }
 
-  @media only screen and (max-width : 900px) and (orientation:landscape) {
+  @media only screen and (max-width: 900px) and (orientation: landscape) {
     max-height: 38px;
-
   }
 
-  @media only screen and (max-width : 600px) {
+  @media only screen and (max-width: 600px) {
     margin-bottom: 10px;
     max-height: 38px;
-
   }
-
 }
 
 .offers {
@@ -683,7 +650,7 @@ textarea {
 .date {
   margin-right: 10px;
   padding: 10px;
-  background-image: url('../img/shape.png');
+  background-image: url("../img/shape.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -696,7 +663,7 @@ textarea {
 }
 
 .popup {
-  @include _transition(all, .1s);
+  @include _transition(all, 0.1s);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -727,14 +694,13 @@ textarea {
   flex-direction: column;
   background: $mainColor;
   @include _borderRadius(5px);
-  @include _transition(all, .1s);
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s;
+  @include _transition(all, 0.1s);
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   z-index: 2;
   width: 95%;
   max-width: 500px;
   padding: 60px 20px 20px;
-
 
   &-input {
     margin-bottom: 15px;
@@ -742,9 +708,7 @@ textarea {
     border: 1px #2f455c solid;
 
     &::placeholder {
-
       color: #2f455c;
-
     }
 
     &:last-child {
@@ -755,8 +719,6 @@ textarea {
   &-textarea {
     margin-bottom: 15px;
   }
-
-
 }
 
 .popup__btn {
@@ -772,7 +734,7 @@ textarea {
   height: 25px;
   display: flex;
 
-  @include _transition(transform, .3s);
+  @include _transition(transform, 0.3s);
 
   span {
     @include _borderRadius(5%);
@@ -790,7 +752,7 @@ textarea {
       @include _borderRadius(5%); // top: 0%;
       right: 0%;
       bottom: 10px;
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       transform: rotate(-90deg);
@@ -822,7 +784,6 @@ textarea {
 .thanks__title {
   @extend .t1;
   margin-bottom: 35px;
-
 }
 
 .thanks__text {
